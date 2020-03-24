@@ -29,17 +29,19 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import SearchTypes from '~/store/search'
+import UiTypes from '~/store/ui'
 
 export default {
   computed: {
     ...mapGetters({
-      items: 'search/items',
-      hideDeleted: 'ui/hideDeleted'
+      items: SearchTypes.Getters.ITEMS,
+      hideDeleted: UiTypes.Getters.HIDE_DELETED
     })
   },
   methods: {
     ...mapActions({
-      deleteItem: 'search/deleteItem'
+      deleteItem: SearchTypes.Actions.DELETE_ITEM
     })
   }
 }
